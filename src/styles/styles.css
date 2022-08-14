@@ -1,0 +1,120 @@
+
+/* Table */
+.tableContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  position: relative;
+}
+
+.tableContent {
+  width: 1000px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+  height: max-content;
+}
+
+.tableHeader {
+  height: 50px;
+  width: 100%;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+
+.tableInfo {
+  height: 50px;
+  text-align: center;
+}
+
+.tableInfoItem {
+  border-top: 2px solid red;
+}
+
+
+.modalContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.formContainer {
+  width: 600px;
+  height: 400px;
+  border: 1px solid gray;
+  background-color: white;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  padding: 1rem;
+  position: relative;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  padding: 0 2rem;
+}
+
+.closeBtn {
+  outline: none;
+  border: none;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: plum;
+  font-size: 2rem;
+  border-radius: 50%;
+  color: white;
+}
+
+.inputBox {
+  width: 400px;
+  margin: 0 auto;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+
+.inputBox > label {
+  color: plum;
+  font-weight: bold;
+}
+.inputBox > input {
+  border: 0;
+  padding: 0.3rem;
+  outline: none;
+  border-bottom: 1px solid gray;
+}
+
+.inputBox > input:hover,
+.inputBox > input:focus {
+  border-bottom: 2px solid plum;
+}
+
+.submitBtn {
+  position: absolute;
+  bottom: 20%;
+  right: 8%;
+  padding: 0.5rem 3rem;
+  outline: none;
+  border: none;
+  background: linear-gradient(to right, plum, black);
+  color: white;
+  border-radius: 5px;
+}
+
+.submitBtn:hover,
+.submitBtn:focus {
+  background: rgb(42, 117, 142);
+}
+
