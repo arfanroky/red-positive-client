@@ -2,15 +2,27 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import styles from '../styles/styles.css';
 
-const Modal = ({ open, setOpen }) => {
+const Modal = ({setCheck, setUserInfo, setOpen }) => {
 
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    setCheck(true)
+    setUserInfo({
+      name: data.name,
+      phone: data.phone,
+      email: data.email,
+      hobbies: data.hobbies
+    })
 
+    reset()
+  }
+
+  console.log(errors);
 
   return (
     <>

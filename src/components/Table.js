@@ -1,9 +1,39 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Modal from './Modal';
+import { toast } from 'react-toastify';
 
 const Table = () => {
   const [open, setOpen] = useState(false);
-  console.log(open);
+  const [userData, setUserData] = useState([]);
+  const [userInfo, setUserInfo] = useState({});
+  const [check, setCheck] = useState(false);
+//   console.log(userInfo);
+
+  useEffect(() => {
+    if (check) {
+      const handleFetchRequest = async () => {
+        await fetch(`http://localhost:8000/userInfo/${userInfo.email}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(userInfo),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data?.error) {
+              toast.error(data?.error);
+            }
+            if (data?.message) {
+              toast.success(data?.message);
+            }
+          });
+      };
+
+      handleFetchRequest();
+    }
+  }, [userInfo, check]);
+
   return (
     <>
       <div className="tableContainer">
@@ -37,7 +67,7 @@ const Table = () => {
           </tbody>
         </table>
       </div>
-      {open ? <Modal open={open} setOpen={setOpen} /> : ''}
+      {open ? <Modal setCheck={setCheck} setUserInfo={setUserInfo} setOpen={setOpen} /> : ''}
     </>
   );
 };
